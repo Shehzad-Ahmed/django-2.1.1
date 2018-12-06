@@ -264,6 +264,7 @@ class MigrationExecutor:
         if migration.replaces:
             for app_label, name in migration.replaces:
                 self.recorder.record_unapplied(app_label, name)
+            self.recorder.record_unapplied(migration.app_label, migration.name)
         else:
             self.recorder.record_unapplied(migration.app_label, migration.name)
         # Report progress
