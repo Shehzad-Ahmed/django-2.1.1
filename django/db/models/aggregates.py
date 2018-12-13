@@ -28,6 +28,7 @@ class Aggregate(Func):
         source_expressions = super().get_source_expressions()
         if self.filter:
             return source_expressions + [self.filter]
+        return source_expressions
 
     def set_source_expressions(self, exprs):
         self.filter = self.filter and exprs.pop()
